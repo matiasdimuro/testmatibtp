@@ -1,0 +1,55 @@
+<mvc:XMLView
+	controllerName="hexagon.testmatibtp.controller.OrdersTable"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+	<Table id="ordersTable" items="{path: 'orders>/results'}">
+	
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Orders Data" />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+
+		<columns>
+			<Column>
+				<Title text="ID"/>
+			</Column>
+			<Column hAlign="Center">
+				<Title text="Customer ID"/>
+			</Column>
+			<Column hAlign="Center">
+				<Title text="Ship Name"/>
+			</Column>
+			<Column hAlign="Center">
+				<Title text="Ship City"/>
+			</Column>
+			<Column hAlign="Center">
+				<Title text="Ship Address"/>
+			</Column>
+			<Column hAlign="Center">
+				<Title text="Ship Country"/>
+			</Column>
+		</columns>
+
+		<items>
+			<ColumnListItem 
+				id="orderTemplate"
+				type="Navigation"
+				press=".onSeeDetail">
+				<cells>
+					<ObjectIdentifier title="{orders>OrderID}"/>
+					<Text text="{orders>CustomerID}"/>
+					<Text text="{orders>ShipName}"/>
+					<Text text="{orders>ShipCity}"/>
+					<Text text="{orders>ShipAddress}"/>
+					<Text text="{orders>ShipCountry}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+
+	</Table>
+
+</mvc:XMLView>

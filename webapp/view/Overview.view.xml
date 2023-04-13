@@ -1,0 +1,13 @@
+<mvc:XMLView
+    id="overviewView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="overviewPage" title="{i18n>title}">
+        <content>
+            <mvc:XMLView id="ordersFiltersView" viewName="hexagon.testmatibtp.view.OrdersFilters" />
+            <mvc:XMLView id="ordersTableView" viewName="hexagon.testmatibtp.view.OrdersTable" />
+        </content>
+    </Page>
+
+</mvc:XMLView>

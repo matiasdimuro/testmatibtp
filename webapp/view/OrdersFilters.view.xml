@@ -1,0 +1,44 @@
+<mvc:XMLView
+    controllerName="hexagon.testmatibtp.controller.OrdersFilters"
+    xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+
+    <fb:FilterBar 
+		id="ordersFilterBar" 
+		header="Filters" 
+		search=".onFilteredSearch" 
+		clear=".onClearSearch" 
+		showGoOnFB="true"
+		showClearOnFB="true">
+		
+			<fb:filterItems>
+			
+                <fb:FilterItem name="orderIDFilter" label="Order ID" id="orderIDFilter">
+                    <fb:control>
+                        <Input value="{/filtering/OrderID}" placeholder="Input the order ID" valueLiveUpdate="true" />
+                    </fb:control>
+                </fb:FilterItem>
+
+                <fb:FilterItem name="shipNameFilter" label="Ship Name" id="shipNameFilter">
+                    <fb:control>
+                        <Input value="{/filtering/ShipName}" placeholder="Input the ship name" valueLiveUpdate="true" />
+                    </fb:control>
+                </fb:FilterItem>
+
+                <fb:FilterItem name="shipCountryFilter" label="Ship Country" id="shipCountryFilter">
+                    <fb:control>
+                        <ComboBox selectedKey="{/filtering/ShipCountry}" items="{path: 'orderCountries>/options'}" placeholder="Select the order country" >
+                            <items>
+							    <core:Item key="{orderCountries>key}" text="{orderCountries>value}" />
+						    </items>
+                        </ComboBox>
+                    </fb:control>
+                </fb:FilterItem>
+                
+            </fb:filterItems>
+		
+	</fb:FilterBar>
+
+</mvc:XMLView>

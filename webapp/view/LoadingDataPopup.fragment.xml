@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Dialog id="retrievingDataDialog" title="Retrieving data" class="sapUiContentPadding">
+		<content>
+			<Text text="Loading data from server. Wait please ..." />
+		</content>
+	</Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,106 @@
+<mvc:XMLView
+    id="productView"
+	controllerName="hexagon.testmatibtp.controller.Product"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+	xmlns="sap.m">
+    <!-- {nwEntities>ProductID} -->
+    <Page 
+        id="productPage" title="Product"
+        showNavButton="true" navButtonPress=".onBackDetail">
+
+        <f:DynamicPage id="productDataPage">
+			
+            <!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="{nwEntities>ProductName}"/>
+					</f:heading>
+					<f:expandedContent>
+						<Label text="ID: {nwEntities>ProductID}"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label text="ID: {nwEntities>ProductID}"/>
+					</f:snappedContent>
+					<f:snappedTitleOnMobile>
+						<Title text="ID: {nwEntities>ProductID}"/>
+					</f:snappedTitleOnMobile>
+					<f:actions>
+						<Button
+								text="Show stock details"
+								type="Emphasized"
+								press=".onSeeStockData"/>
+						<Button
+								id="btnFilter"
+								press=".onFilterByNoDiscount"
+								text="Filter by no discount"
+								type="Emphasized"/>
+						<Button
+								id="btnShowAll"
+								press=".onShowAll"
+								enabled="false"
+								text="Show all"
+								type="Transparent"/>
+					</f:actions>
+				</f:DynamicPageTitle>
+			</f:title>
+
+			<!-- DynamicPage Header -->
+			<f:header>
+				<f:DynamicPageHeader pinnable="true">
+					<HBox>
+						<VBox class="sapUiMediumMarginEnd">
+							<ObjectAttribute 
+								title="Quantity per unit" 
+								text="{nwEntities>QuantityPerUnit}"/>
+							<ObjectAttribute 
+								title="Unit price" 
+								text="{
+									path: 'nwEntities>UnitPrice',
+									formatter: '.formatter.currency'
+								}"/>
+						</VBox>
+						<VBox>
+							<ObjectAttribute title="Discontinued" text="{nwEntities>Discontinued}"/>
+						</VBox>
+					</HBox>
+				</f:DynamicPageHeader>
+			</f:header>
+
+			<f:content>
+				<Table id="idProductsTable" sticky="HeaderToolbar,ColumnHeaders">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Orders Detail" level="H2"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column>
+							<Text text="Order ID" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Quantity" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Discount" />
+						</Column>
+					</columns>
+					<dependents>
+						<ColumnListItem id="orderDetailsTemplate">
+							<cells>
+								<ObjectIdentifier title="{nwEntities>OrderID}" />
+								<Text text="{nwEntities>Quantity}" />
+								<Text text="{nwEntities>Discount}" />
+							</cells>
+						</ColumnListItem>
+					</dependents>
+				</Table>
+			</f:content>
+
+		</f:DynamicPage>
+        
+    </Page>
+
+
+</mvc:XMLView>

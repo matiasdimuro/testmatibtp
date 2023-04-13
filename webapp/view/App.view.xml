@@ -1,0 +1,11 @@
+<mvc:View 
+    controllerName="hexagon.testmatibtp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m">
+
+    <App id="app">
+        <!-- <mvc:XMLView id="overviewView" viewName="hexagon.testmatibtp.view.Overview" /> -->
+    </App>
+
+</mvc:View>
